@@ -1,14 +1,21 @@
+// src/pages/Home.jsx
+import "../index.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import heroImg from "../assets/undraw_home-cinema_jdm1.svg";
 
 export default function Home() {
-  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
   function handleSearch() {
-    if (!search.trim()) return;
-    navigate(`/movies?search=${encodeURIComponent(search)}`);
+    const trimmed = query.trim();
+    if (!trimmed) return;
+    navigate(`/movies?search=${encodeURIComponent(trimmed)}`);
+  }
+
+  function handleKeyDown(e) {
+    if (e.key === "Enter") handleSearch();
   }
 
   return (
@@ -20,18 +27,29 @@ export default function Home() {
         <div className="search-bar">
           <input
             type="text"
+            id="homeSearchInput"
             placeholder="Search for a movie..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+            autoComplete="off"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
-          <button onClick={handleSearch}>
+          <button
+            type="button"
+            id="homeSearchButton"
+            aria-label="Search"
+            onClick={handleSearch}
+          >
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
 
         <figure className="hero__image-wrapper">
-          <img className="hero__img" src={heroImg} />
+          <img
+            className="hero__img"
+            src={heroImg}
+            alt="Person sitting in a home cinema watching a movie"
+          />
         </figure>
       </div>
     </main>

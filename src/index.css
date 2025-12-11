@@ -192,6 +192,17 @@ nav {
   height: auto;
 }
 
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 25px 0;
+  background-color: #f7f7f7;
+  color: #173169;
+  font-weight: 600;
+  margin-top: 40px;
+}
+
+
 /* Responsive */
 @media (max-width: 768px) {
   nav {

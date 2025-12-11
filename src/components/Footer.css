@@ -1,0 +1,19 @@
+/* FOOTER */
+
+footer {
+  background-color: #0d1c33;
+  color: #ffffff;
+  padding: 18px 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footer__inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+.footer__inner span {
+  font-weight: 700;
+}

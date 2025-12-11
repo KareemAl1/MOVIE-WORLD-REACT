@@ -1,9 +1,13 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
 import MovieDetail from "./pages/MovieDetail";
+
+import { Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
@@ -15,6 +19,8 @@ export default function App() {
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:imdbID" element={<MovieDetail />} />
       </Routes>
+
+      <Footer />
     </div>
   );
 }
